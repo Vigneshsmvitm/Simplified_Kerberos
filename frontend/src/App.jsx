@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import "./App.css"
 
+const API_BASE_URL = "https://backend-ten-olive-35.vercel.app"
+
 function App() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -26,7 +28,7 @@ function App() {
     const loadServices = async () => {
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/services"
+          `${API_BASE_URL}/services`
         )
 
         const data = await response.json()
@@ -50,7 +52,7 @@ function App() {
   const handleLogin = async () => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/login",
+        `${API_BASE_URL}/login`,
         {
           method: "POST",
           headers: {
@@ -84,7 +86,7 @@ function App() {
   const handleRequestService = async () => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/request-service-ticket",
+        `${API_BASE_URL}/request-service-ticket`,
         {
           method: "POST",
           headers: {
@@ -119,7 +121,7 @@ function App() {
   const handleAccessService = async () => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/access-service",
+        `${API_BASE_URL}/access-service`,
         {
           method: "POST",
           headers: {
